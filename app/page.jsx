@@ -34,7 +34,7 @@ export default async function HomePage() {
           {products.map((product) => (
             <Link
               key={product.id}
-              href={`/product/${product.id}`}
+              href={`/products/${product.id}`}
               className="border p-4 rounded-lg hover:shadow-lg transition"
             >
               <div className="relative w-full h-60 mb-4">
