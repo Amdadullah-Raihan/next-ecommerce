@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button"; // Update path if needed
+import { Input } from "@/components/ui";
 
 export default function LoginPage() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -41,29 +42,29 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
+    <div className="max-w-md mx-auto mt-10 p-6 bg-gray-800  shadow rounded-lg">
       <h2 className="text-2xl font-bold mb-4">Login</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <input
+        <Input
           name="email"
           type="email"
-          placeholder="Email"
+          label="Email"
+          placeholder="Type your email"
           value={form.email}
           onChange={handleChange}
-          required
           className="w-full px-4 py-2 border rounded"
         />
-        <input
+        <Input
           name="password"
           type="password"
-          placeholder="Password"
+          label="Password"
+          placeholder="Type Your Password"
           value={form.password}
           onChange={handleChange}
-          required
           className="w-full px-4 py-2 border rounded"
         />
         {error && <p className="text-red-500">{error}</p>}
-        <Button type="submit" variant="primary" className="w-full">
+        <Button type="submit" className="w-full">
           Login
         </Button>
       </form>
