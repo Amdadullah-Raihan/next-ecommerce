@@ -60,7 +60,7 @@ export default function Navbar() {
         ) : (
           <Link
             href="/login"
-            className="inline-block bg-[#F7374F] text-white px-6 py-2 rounded-lg hover:black/70 transition"
+            className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg  transition"
           >
             Login
           </Link>
