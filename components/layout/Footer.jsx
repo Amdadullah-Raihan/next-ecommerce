@@ -83,7 +83,7 @@ export default function Footer() {
 
       {/* Bottom note */}
       <div className="text-center text-xs text-gray-500 mt-8">
-        &copy; {new Date().getFullYear()} NoCashier. All rights reserved.
+        &copy; {new Date().getFullYear()} eCommerce. All rights reserved.
       </div>
     </footer>
   );
