@@ -14,14 +14,14 @@ export default async function HomePage() {
   const products = await getProducts();
 
   return (
-    <main className="p-6">
+    <main className="p-6 text-white">
       {/* Hero Section */}
-      <section className="bg-gray-100 p-10 rounded-xl text-center">
+      <section className="bg-gray-800 p-10 rounded-xl text-center">
         <h1 className="text-4xl font-bold mb-4">Discover Premium Garments</h1>
         <p className="text-lg mb-6">Stylish. Affordable. Comfortable.</p>
         <Link
           href="/category/men"
-          className="inline-block bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition"
+          className="inline-block bg-black text-white px-6 py-3 rounded-full hover:black/70 transition"
         >
           Shop Now
         </Link>
@@ -35,7 +35,7 @@ export default async function HomePage() {
             <Link
               key={product.id}
               href={`/products/${product.id}`}
-              className="border p-4 rounded-lg hover:shadow-lg transition"
+              className="shadow bg-gray-800 p-4 rounded-lg hover:shadow-lg transition"
             >
               <div className="relative w-full h-60 mb-4">
                 <Image
@@ -46,7 +46,7 @@ export default async function HomePage() {
                 />
               </div>
               <h3 className="text-lg font-medium">{product.title}</h3>
-              <p className="text-gray-700">${product.price.toFixed(2)}</p>
+              <p className="opacity-70">${product.price.toFixed(2)}</p>
             </Link>
           ))}
         </div>
