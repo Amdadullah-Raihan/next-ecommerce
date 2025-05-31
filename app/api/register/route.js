@@ -4,9 +4,9 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 export async function POST(req) {
-  const { name, email, password } = await req.json();
+  const { firstName, lastName, email, password } = await req.json();
 
-  if (!email || !password || !name) {
+  if (!email || !password || !firstName || !lastName) {
     return new Response(JSON.stringify({ error: "Missing fields" }), {
       status: 400,
     });
@@ -23,7 +23,8 @@ export async function POST(req) {
 
   const user = await prisma.user.create({
     data: {
-      name,
+      firstName,
+      lastName,
       email,
       password: hashedPassword,
       role: "CUSTOMER", // default role

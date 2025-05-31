@@ -40,7 +40,7 @@ export default function RegisterPage() {
         return;
       }
 
-      router.push("/login"); // Or redirect to home/dashboard
+      //   router.push("/login"); // Or redirect to home/dashboard
     } catch (err) {
       setError("Something went wrong");
       setLoading(false);
@@ -48,7 +48,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white dark:bg-gray-900 rounded-lg shadow">
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white dark:bg-gray-900 text-white rounded-lg shadow">
       <h2 className="text-2xl font-bold mb-4 text-center">Register</h2>
 
       {error && (
@@ -58,28 +58,29 @@ export default function RegisterPage() {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block mb-1">First Name</label>
-          <input
-            type="text"
-            name="firstName"
-            value={form.firstName}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md dark:bg-gray-800 dark:text-white"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block mb-1">Last Name</label>
-          <input
-            type="text"
-            name="lastName"
-            value={form.lastName}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md dark:bg-gray-800 dark:text-white"
-            required
-          />
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block mb-1">First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              value={form.firstName}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-md dark:bg-gray-800 dark:text-white"
+              required
+            />
+          </div>
+          <div>
+            <label className="block mb-1">Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              value={form.lastName}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-md dark:bg-gray-800 dark:text-white"
+              required
+            />
+          </div>
         </div>
 
         <div>
@@ -106,7 +107,7 @@ export default function RegisterPage() {
           />
         </div>
 
-        <Button type="submit" variant="primary" loading={loading}>
+        <Button type="submit" loading={loading}>
           Register
         </Button>
       </form>
