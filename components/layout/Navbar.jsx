@@ -13,18 +13,20 @@ export default function Navbar() {
   return (
     <nav className="bg-gray-800 shadow-md sticky top-0  z-50 m-6 mb-0 rounded-lg">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center  gap-2">
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
 
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold tracking-wide">
-          eCommerce
-        </Link>
+          {/* Logo */}
+          <Link href="/" className="text-2xl font-bold tracking-wide">
+            eCommerce
+          </Link>
+        </div>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6">
