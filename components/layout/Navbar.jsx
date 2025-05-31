@@ -11,7 +11,7 @@ export default function Navbar() {
   const isAuthenticated = false; // Replace with actual authentication logic
 
   return (
-    <nav className="bg-gray-800 shadow-md sticky top-0 z-50 m-6 mb-0 rounded-lg">
+    <nav className="bg-gray-800 shadow-md sticky top-0  z-50 m-6 mb-0 rounded-lg">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Mobile Menu Button */}
         <button
@@ -46,9 +46,6 @@ export default function Navbar() {
           >
             Kids
           </Link>
-          <Link href="/cart" className="hover:text-blue-600 transition">
-            Cart
-          </Link>
         </div>
         {isAuthenticated ? (
           <div className="border border-gray-600 rounded-full">
@@ -63,7 +60,7 @@ export default function Navbar() {
         ) : (
           <Link
             href="/login"
-            className="inline-block bg-black text-white px-6 py-2 rounded-lg hover:black/70 transition"
+            className="inline-block bg-[#F7374F] text-white px-6 py-2 rounded-lg hover:black/70 transition"
           >
             Login
           </Link>
