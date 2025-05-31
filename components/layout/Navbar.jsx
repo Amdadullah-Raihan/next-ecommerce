@@ -8,6 +8,7 @@ import Image from "next/image";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isAuthenticated = false; // Replace with actual authentication logic
 
   return (
     <nav className="bg-gray-800 shadow-md sticky top-0 z-50 m-6 mb-0 rounded-lg">
@@ -49,15 +50,24 @@ export default function Navbar() {
             Cart
           </Link>
         </div>
-        <div className="border border-gray-600 rounded-full">
-          <Image
-            src="/logo.png"
-            alt="DP"
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
-        </div>
+        {isAuthenticated ? (
+          <div className="border border-gray-600 rounded-full">
+            <Image
+              src="/logo.png"
+              alt="DP"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+          </div>
+        ) : (
+          <Link
+            href="/login"
+            className="inline-block bg-black text-white px-6 py-2 rounded-lg hover:black/70 transition"
+          >
+            Login
+          </Link>
+        )}
       </div>
 
       {/* Mobile Menu */}
