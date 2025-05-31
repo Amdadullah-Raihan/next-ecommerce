@@ -9,7 +9,7 @@ const Button = ({
   loading,
   ...restProps
 }) => {
-  const baseStyles = `active:scale-95 flex items-center justify-center gap-2 px-4 py-3 max-h-10 font-semibold text-sm rounded-md focus:outline-none focus:shadow-outline transition duration-200 disabled:opacity-30 dark:disabled:opacity-20  disabled:cursor-not-allowed disabled:active:scale-100`;
+  const baseStyles = `active:scale-95 flex items-center justify-center gap-2 px-4 py-3 max-h-10 font-semibold text-sm rounded-md focus:outline-none focus:shadow-outline transition duration-200 disabled:opacity-30 dark:disabled:opacity-20  disabled:cursor-not-allowed disabled:active:scale-100 cursor-pointer`;
 
   const variantStyles = {
     primary: `bg-primary text-white hover:bg-primaryDark dark:bg-primary dark:hover:bg-primaryDark disabled:bg-primary dark:disabled:bg-primary`,
