@@ -30,7 +30,7 @@ export default async function HomePage() {
             Stylish. Affordable. Comfortable.
           </p>
           <Link
-            href="/category/men"
+            href="#featured-products"
             className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-full hover:black/70 transition active:scale-95"
           >
             Shop Now
@@ -39,7 +39,7 @@ export default async function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="mt-12">
+      <section id="featured-products" className="mt-12">
         <h2 className="text-2xl font-semibold mb-4">Featured Products</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {products.map((product) => (
