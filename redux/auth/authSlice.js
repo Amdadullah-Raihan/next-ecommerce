@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null, // Holds user data
-  token: null, // For storing JWT or auth token
-  isAuthenticated: false,
+  token: localStorage.getItem("token") || null, // For storing JWT or auth token
+  isAuthenticated: localStorage.getItem("token") ? true : false,
 };
 
 const authSlice = createSlice({
