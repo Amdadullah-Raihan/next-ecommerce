@@ -10,15 +10,23 @@ export default function ThemeToggle() {
   useEffect(() => {
     const isDark = localStorage.getItem("theme") === "dark";
     setDark(isDark);
-    document.documentElement.classList.toggle("dark", isDark);
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, []);
 
   const toggleTheme = () => {
     const newDark = !dark;
     setDark(newDark);
-
     localStorage.setItem("theme", newDark ? "dark" : "light");
-    document.documentElement.classList.toggle("dark", newDark);
+
+    if (newDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   };
 
   return (

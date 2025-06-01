@@ -12,8 +12,8 @@ export default function Navbar() {
   const isAuthenticated = false; // Replace with actual authentication logic
 
   return (
-    <nav className="sticky top-0 z-50 p-6 pb-2 dark:bg-gray-900 ">
-      <div className="flex items-center justify-between px-4 py-3 mx-auto bg-gray-800 rounded-lg max-w-7xl">
+    <nav className="sticky top-0 z-50 p-6 pb-2 bg-white dark:bg-gray-900 ">
+      <div className="flex items-center justify-between px-4 py-3 mx-auto bg-gray-100 rounded-lg dark:bg-gray-800 max-w-7xl">
         <div className="flex items-center gap-2">
           {/* Mobile Menu Button */}
           <button
