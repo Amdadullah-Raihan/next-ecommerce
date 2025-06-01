@@ -6,10 +6,11 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import ThemeToggle from "../ui/ThemeToggle";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const isAuthenticated = false; // Replace with actual authentication logic
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
 
   return (
     <nav className="sticky top-0 z-50 p-6 pb-2 bg-white dark:bg-gray-900 ">
