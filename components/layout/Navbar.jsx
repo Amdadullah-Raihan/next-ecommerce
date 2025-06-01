@@ -5,15 +5,16 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import ThemeToggle from "../ui/ThemeToggle";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isAuthenticated = false; // Replace with actual authentication logic
 
   return (
-    <nav className="bg-gray-800 shadow-md sticky top-0  z-50 m-6 mb-0 rounded-lg">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center  gap-2">
+    <nav className="sticky top-0 z-50 m-6 mb-0 bg-gray-800 rounded-lg shadow-md">
+      <div className="flex items-center justify-between px-4 py-3 mx-auto max-w-7xl">
+        <div className="flex items-center gap-2">
           {/* Mobile Menu Button */}
           <button
             className="md:hidden"
@@ -29,49 +30,52 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/" className="hover:text-blue-600 transition">
+        <div className="items-center hidden gap-6 md:flex">
+          <Link href="/" className="transition hover:text-blue-600">
             Home
           </Link>
-          <Link href="/category/men" className="hover:text-blue-600 transition">
+          <Link href="/category/men" className="transition hover:text-blue-600">
             Men
           </Link>
           <Link
             href="/category/women"
-            className="hover:text-blue-600 transition"
+            className="transition hover:text-blue-600"
           >
             Women
           </Link>
           <Link
             href="/category/kids"
-            className="hover:text-blue-600 transition"
+            className="transition hover:text-blue-600"
           >
             Kids
           </Link>
         </div>
-        {isAuthenticated ? (
-          <div className="border border-gray-600 rounded-full">
-            <Image
-              src="/logo.png"
-              alt="DP"
-              width={40}
-              height={40}
-              className="rounded-full"
-            />
-          </div>
-        ) : (
-          <Link
-            href="/login"
-            className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg  transition"
-          >
-            Login
-          </Link>
-        )}
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          {isAuthenticated ? (
+            <div className="border border-gray-600 rounded-full">
+              <Image
+                src="/logo.png"
+                alt="DP"
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              className="inline-block px-6 py-2 text-white transition bg-orange-500 rounded-lg hover:bg-orange-600"
+            >
+              Login
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden px-4 pb-4 space-y-2">
+        <div className="px-4 pb-4 space-y-2 md:hidden">
           <Link href="/" className="block hover:text-blue-600">
             Home
           </Link>
