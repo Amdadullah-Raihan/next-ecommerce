@@ -25,7 +25,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label="Toggle Theme"
-      className="relative flex items-center justify-center w-10 h-10 overflow-hidden "
+      className="relative flex items-center justify-center w-10 h-10 overflow-hidden cursor-pointer "
     >
       {/* Sun icon */}
       <Sun
