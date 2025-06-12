@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-10 mt-12 rounded-t-lg flex flex-col items-center mx-6">
-      <div className="  px-4 grid grid-cols-1 md:grid-cols-4 gap-8 ">
+    <footer className="flex flex-col items-center py-10 mx-6 mt-12 text-white bg-gray-800 rounded-t-lg">
+      <div className="grid grid-cols-1 gap-8 px-4  md:grid-cols-4">
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-4">eCommerce</h2>
+          <h2 className="mb-4 text-2xl font-bold text-white">Logo</h2>
           <p className="text-sm">
             Your go-to online garments store. Style meets comfort at the right
             price.
@@ -16,7 +16,7 @@ export default function Footer() {
 
         {/* Links */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-2">Categories</h3>
+          <h3 className="mb-2 text-lg font-semibold text-white">Categories</h3>
           <ul className="space-y-1 text-sm">
             <li>
               <Link href="/category/men" className="hover:text-white">
@@ -38,7 +38,7 @@ export default function Footer() {
 
         {/* Support */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-2">Support</h3>
+          <h3 className="mb-2 text-lg font-semibold text-white">Support</h3>
           <ul className="space-y-1 text-sm">
             <li>
               <Link href="/contact" className="hover:text-white">
@@ -60,7 +60,7 @@ export default function Footer() {
 
         {/* Social */}
         <div>
-          <h3 className="text-lg font-semibold text-white mb-2">Follow Us</h3>
+          <h3 className="mb-2 text-lg font-semibold text-white">Follow Us</h3>
           <ul className="space-y-1 text-sm">
             <li>
               <a href="#" className="hover:text-white">
@@ -82,8 +82,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom note */}
-      <div className="text-center text-xs text-gray-500 mt-8">
-        &copy; {new Date().getFullYear()} eCommerce. All rights reserved.
+      <div className="mt-8 text-xs text-center text-gray-500">
+        &copy; {new Date().getFullYear()} Logo. All rights reserved.
       </div>
     </footer>
   );

@@ -7,15 +7,17 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import ThemeToggle from "../ui/ThemeToggle";
 import { useSelector } from "react-redux";
+import { cn } from "@/utils/cn";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, isAuthenticated } = useSelector((state) => state.auth);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 p-6 pb-2 bg-white dark:bg-gray-900 ">
+    <nav className="sticky top-0 z-50 p-6 pb-2 bg-white dark:bg-gray-900 dark:text-white">
       <div className="flex items-center justify-between px-4 py-3 mx-auto bg-gray-100 rounded-lg dark:bg-gray-800 max-w-7xl">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 text-white">
           {/* Mobile Menu Button */}
           <button
             className="md:hidden"
@@ -26,7 +28,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold tracking-wide">
-            eCommerce
+            Logo
           </Link>
         </div>
 
@@ -51,10 +53,15 @@ export default function Navbar() {
             Kids
           </Link>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="relative flex items-center gap-4">
           <ThemeToggle />
           {isAuthenticated ? (
-            <div className="border border-gray-600 rounded-full">
+            <div
+              onClick={() => {
+                setIsUserMenuOpen(!isUserMenuOpen);
+              }}
+              className="border border-gray-600 rounded-full cursor-pointer"
+            >
               <Image
                 src="/logo.png"
                 alt="DP"
@@ -71,6 +78,38 @@ export default function Navbar() {
               Login
             </Link>
           )}
+
+          <div
+            className={cn(
+              "absolute rounded-lg shadow-2xl dark:bg-gray-700 p-6 w-64 z-50 transform transition-all duration-300 ease-in-out",
+              isUserMenuOpen
+                ? "opacity-100 translate-y-2 scale-100 pointer-events-auto right-6 top-full"
+                : "opacity-0 translate-y-0 scale-95 pointer-events-none right-6 top-full"
+            )}
+          >
+            <div className="flex flex-col space-y-2">
+              <p className="text-sm text-gray-300">Signed in as</p>
+              <p className="font-semibold text-white">{user?.email}</p>
+
+              <hr className="my-2 border-gray-600" />
+
+              <button className="px-4 py-2 text-sm text-left transition rounded hover:bg-gray-600">
+                Profile
+              </button>
+              <button className="px-4 py-2 text-sm text-left transition rounded hover:bg-gray-600">
+                Orders
+              </button>
+              <button className="px-4 py-2 text-sm text-left transition rounded hover:bg-gray-600">
+                Settings
+              </button>
+
+              <hr className="my-2 border-gray-600" />
+
+              <button className="px-4 py-2 text-sm text-left text-red-400 transition rounded hover:bg-red-900">
+                Logout
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
